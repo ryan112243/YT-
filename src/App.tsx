@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
-type YTVideo = {
-  id: string
-  title: string
-  channel: string
-  thumbnail: string
-}
-
 declare global {
   interface Window {
     onYouTubeIframeAPIReady?: () => void
