@@ -4,14 +4,16 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/YT-/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'YeeMusic Web',
-        short_name: 'YeeMusic',
+        name: 'YT背景撥放',
+        short_name: 'YT背景撥放',
+        scope: '/YT-/',
         theme_color: '#111111',
         background_color: '#111111',
         display: 'standalone',
@@ -36,7 +38,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        navigateFallback: '/',
+        navigateFallback: 'index.html',
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/(i\.ytimg\.com|yt3\.ggpht\.com)\/.*/i,

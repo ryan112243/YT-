@@ -43,9 +43,10 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // 嘗試從 /google-client.json 載入 client_id（可接受兩種格式）
+    // 嘗試從 base 路徑載入 client_id（可接受兩種格式）
     if (clientIdInput) return
-    fetch('/google-client.json')
+    const url = new URL('google-client.json', import.meta.env.BASE_URL).toString()
+    fetch(url)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
         if (!j) return
